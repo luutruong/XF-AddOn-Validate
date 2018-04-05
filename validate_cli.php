@@ -91,7 +91,6 @@ abstract class AbstractValidator {
     protected $addOnId;
     protected $addOnDir;
 
-    protected $errors = [];
     // all files inside the add-on
     protected $files = [];
 
@@ -108,14 +107,6 @@ abstract class AbstractValidator {
      */
     abstract public function isOk();
 
-    /**
-     * @return array
-     */
-    public function getErrors()
-    {
-        return $this->errors;
-    }
-
     protected function relativePath($path)
     {
         return substr($path, strlen(\XF::getRootDirectory()) + 1);
@@ -130,7 +121,7 @@ abstract class AbstractValidator {
                 $message = new TextColor($message, $color);
             }
         }
-        
+
         echo str_repeat(' ', $indent) . $message . PHP_EOL;
     }
 
