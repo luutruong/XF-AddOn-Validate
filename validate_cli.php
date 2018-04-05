@@ -24,6 +24,9 @@ if (!$isOk) {
     exit(1);
 }
 
+echo 'This add-on ' . $addOnId . ' look ok!';
+exit(0);
+
 class TextColor {
     protected $textColors = [];
     protected $bgColors = [];
