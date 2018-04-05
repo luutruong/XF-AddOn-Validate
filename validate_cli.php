@@ -549,6 +549,13 @@ class TemplateValidator extends AbstractValidator {
                 ];
             }
         }
+
+        foreach ($this->recommendWildcards as $templateKey => $matches) {
+            $wildcardFix = $templateKey . '*';
+            if (isset($this->usedTemplates[$wildcardFix])) {
+                unset($this->recommendWildcards[$templateKey]);
+            }
+        }
     }
 
     protected function loadAddOnTemplates()
